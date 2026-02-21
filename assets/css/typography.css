@@ -1,0 +1,126 @@
+/* ============================================================
+   Apple Typography — SF Pro Stack + Dynamic Type Scale
+   ============================================================ */
+
+:root {
+    /* ─── Dynamic Type Scale (Light) ─── */
+    /* Mirrors Apple's UIFont.TextStyle values */
+    --text-large-title: clamp(28px, 5vw, 34px);
+    --text-title1: clamp(24px, 4vw, 28px);
+    --text-title2: clamp(20px, 3.5vw, 22px);
+    --text-title3: clamp(18px, 3vw, 20px);
+    --text-headline: clamp(15px, 2.5vw, 17px);
+    --text-body: clamp(15px, 2.5vw, 17px);
+    --text-callout: clamp(14px, 2.2vw, 16px);
+    --text-subheadline: clamp(13px, 2vw, 15px);
+    --text-footnote: clamp(12px, 1.8vw, 13px);
+    --text-caption1: clamp(11px, 1.6vw, 12px);
+    --text-caption2: clamp(10px, 1.5vw, 11px);
+
+    /* ─── Font Weights ─── */
+    --weight-ultralight: 100;
+    --weight-thin: 200;
+    --weight-light: 300;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    --weight-heavy: 800;
+    --weight-black: 900;
+
+    /* ─── Letter Spacing (Apple HIG) ─── */
+    --tracking-tight: -0.022em;
+    --tracking-normal: 0.010em;
+    --tracking-wide: 0.020em;
+
+    /* ─── Line Height ─── */
+    --leading-tight: 1.2;
+    --leading-snug: 1.35;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.65;
+}
+
+/* ─── Typography Utility Classes ─── */
+
+.text-large-title {
+    font-size: var(--text-large-title);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+}
+
+.text-title1 {
+    font-size: var(--text-title1);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+}
+
+.text-title2 {
+    font-size: var(--text-title2);
+    font-weight: var(--weight-bold);
+    letter-spacing: -0.016em;
+    line-height: var(--leading-tight);
+}
+
+.text-title3 {
+    font-size: var(--text-title3);
+    font-weight: var(--weight-semibold);
+    letter-spacing: -0.012em;
+    line-height: var(--leading-snug);
+}
+
+.text-headline {
+    font-size: var(--text-headline);
+    font-weight: var(--weight-semibold);
+    letter-spacing: -0.002em;
+    line-height: var(--leading-snug);
+}
+
+.text-body {
+    font-size: var(--text-body);
+    font-weight: var(--weight-regular);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-normal);
+}
+
+.text-callout {
+    font-size: var(--text-callout);
+    font-weight: var(--weight-regular);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-normal);
+}
+
+.text-subheadline {
+    font-size: var(--text-subheadline);
+    font-weight: var(--weight-regular);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-normal);
+}
+
+.text-footnote {
+    font-size: var(--text-footnote);
+    font-weight: var(--weight-regular);
+    letter-spacing: 0.012em;
+    line-height: var(--leading-normal);
+}
+
+.text-caption1 {
+    font-size: var(--text-caption1);
+    font-weight: var(--weight-regular);
+    letter-spacing: 0.012em;
+    line-height: var(--leading-normal);
+}
+
+.text-caption2 {
+    font-size: var(--text-caption2);
+    font-weight: var(--weight-regular);
+    letter-spacing: 0.020em;
+    line-height: var(--leading-normal);
+}
+
+/* ─── Number Style ─── */
+.text-mono {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+}

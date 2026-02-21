@@ -1,0 +1,199 @@
+/* ============================================================
+   Transitions — Liquid Glass Page & Component Animations
+   Apple-style physics-based motion
+   ============================================================ */
+
+/* ─── Timing Functions ─── */
+:root {
+    --ease-apple: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-apple-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-apple-snap: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-apple-decel: cubic-bezier(0, 0, 0.2, 1);
+    --ease-apple-accel: cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* ─── Page Transition: apple-page (slide + fade) ─── */
+.apple-page-enter-active,
+.apple-page-leave-active {
+    transition:
+        opacity 0.30s var(--ease-apple),
+        transform 0.35s var(--ease-apple-decel);
+    will-change: opacity, transform;
+}
+
+.apple-page-enter-from {
+    opacity: 0;
+    transform: translate3d(5%, 0, 0) scale(0.98);
+}
+
+.apple-page-leave-to {
+    opacity: 0;
+    transform: translate3d(-3%, 0, 0) scale(0.97);
+}
+
+/* ─── Layout Transition: apple-fade ─── */
+.apple-fade-enter-active,
+.apple-fade-leave-active {
+    transition: opacity 0.25s var(--ease-apple);
+}
+
+.apple-fade-enter-from,
+.apple-fade-leave-to {
+    opacity: 0;
+}
+
+/* ─── Slide Up (Sheet / Modal) ─── */
+.apple-slide-up-enter-active,
+.apple-slide-up-leave-active {
+    transition:
+        opacity 0.35s var(--ease-apple-decel),
+        transform 0.40s var(--ease-apple-decel);
+    will-change: opacity, transform;
+}
+
+.apple-slide-up-enter-from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+}
+
+.apple-slide-up-leave-to {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+}
+
+/* ─── Tab Switch: apple-tab (crossfade + scale) ─── */
+.apple-tab-enter-active,
+.apple-tab-leave-active {
+    transition:
+        opacity 0.22s var(--ease-apple),
+        transform 0.22s var(--ease-apple);
+    will-change: opacity, transform;
+}
+
+.apple-tab-enter-from {
+    opacity: 0;
+    transform: scale(0.96);
+}
+
+.apple-tab-leave-to {
+    opacity: 0;
+    transform: scale(0.96);
+}
+
+/* ─── Sidebar Slide: apple-sidebar ─── */
+.apple-sidebar-enter-active,
+.apple-sidebar-leave-active {
+    transition: transform 0.35s var(--ease-apple-decel);
+    will-change: transform;
+}
+
+.apple-sidebar-enter-from {
+    transform: translate3d(-100%, 0, 0);
+}
+
+.apple-sidebar-leave-to {
+    transform: translate3d(-100%, 0, 0);
+}
+
+/* ─── Scale Pop (notification, badge) ─── */
+.apple-pop-enter-active {
+    transition:
+        opacity 0.20s var(--ease-apple),
+        transform 0.30s var(--ease-apple-spring);
+}
+
+.apple-pop-leave-active {
+    transition:
+        opacity 0.15s var(--ease-apple),
+        transform 0.20s var(--ease-apple-snap);
+}
+
+.apple-pop-enter-from {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.apple-pop-leave-to {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* ─── Hover & Press Utilities ─── */
+.apple-press {
+    transition: transform 0.12s var(--ease-apple), filter 0.12s var(--ease-apple);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.apple-press:active {
+    transform: scale(0.96);
+    filter: brightness(0.88);
+}
+
+.apple-hover {
+    transition: transform 0.20s var(--ease-apple-spring), box-shadow 0.20s var(--ease-apple);
+}
+
+.apple-hover:hover {
+    transform: scale(1.02) translateY(-1px);
+}
+
+/* ─── Shimmer Animation ─── */
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.15) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+}
+
+/* ─── Pulse (loading skeleton) ─── */
+@keyframes apple-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.apple-skeleton {
+    animation: apple-pulse 1.8s var(--ease-apple) infinite;
+    background: var(--material-bg-thin);
+    border-radius: 8px;
+}
+
+/* ─── Liquid Blob Float ─── */
+@keyframes liquid-float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(3px, -5px) rotate(1.5deg);
+    }
+
+    66% {
+        transform: translate(-3px, 3px) rotate(-1deg);
+    }
+}
+
+.liquid-float {
+    animation: liquid-float 6s var(--ease-apple) infinite;
+}

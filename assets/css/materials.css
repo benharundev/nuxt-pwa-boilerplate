@@ -1,0 +1,145 @@
+/* ============================================================
+   Apple Materials — Glassmorphism / Vibrancy Utility System
+   Mirrors iOS/macOS UIBlurEffectStyle semantics
+   ============================================================ */
+
+:root {
+  /* ─── Light Mode Material Base Colors ─── */
+  --material-bg-light:          rgba(255, 255, 255, 0.72);
+  --material-bg-thin-light:     rgba(255, 255, 255, 0.55);
+  --material-bg-regular-light:  rgba(255, 255, 255, 0.72);
+  --material-bg-thick-light:    rgba(255, 255, 255, 0.88);
+  --material-bg-ultra-light:    rgba(255, 255, 255, 0.40);
+
+  --material-border-light:      rgba(0, 0, 0, 0.08);
+  --material-separator-light:   rgba(0, 0, 0, 0.12);
+
+  /* ─── Dark Mode Material Base Colors ─── */
+  --material-bg-dark:           rgba(28, 28, 30, 0.78);
+  --material-bg-thin-dark:      rgba(28, 28, 30, 0.60);
+  --material-bg-regular-dark:   rgba(28, 28, 30, 0.78);
+  --material-bg-thick-dark:     rgba(28, 28, 30, 0.90);
+  --material-bg-ultra-dark:     rgba(28, 28, 30, 0.45);
+
+  --material-border-dark:       rgba(255, 255, 255, 0.08);
+  --material-separator-dark:    rgba(255, 255, 255, 0.12);
+
+  /* ─── Active Material Tokens ─── */
+  --material-bg:          var(--material-bg-light);
+  --material-bg-thin:     var(--material-bg-thin-light);
+  --material-bg-regular:  var(--material-bg-regular-light);
+  --material-bg-thick:    var(--material-bg-thick-light);
+  --material-bg-ultra:    var(--material-bg-ultra-light);
+  --material-border:      var(--material-border-light);
+  --material-separator:   var(--material-separator-light);
+}
+
+.dark {
+  --material-bg:          var(--material-bg-dark);
+  --material-bg-thin:     var(--material-bg-thin-dark);
+  --material-bg-regular:  var(--material-bg-regular-dark);
+  --material-bg-thick:    var(--material-bg-thick-dark);
+  --material-bg-ultra:    var(--material-bg-ultra-dark);
+  --material-border:      var(--material-border-dark);
+  --material-separator:   var(--material-separator-dark);
+}
+
+/* ─── Material Utility Classes ─── */
+
+/* systemUltraThinMaterial — Sidebar, translucent overlays */
+.material-ultrathin {
+  background: var(--material-bg-ultra);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--material-border);
+}
+
+/* systemThinMaterial — Toolbars, secondary panels */
+.material-thin {
+  background: var(--material-bg-thin);
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border: 1px solid var(--material-border);
+}
+
+/* systemMaterial — Default cards, sheets */
+.material-regular {
+  background: var(--material-bg-regular);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid var(--material-border);
+}
+
+/* systemThickMaterial — Navigation bars, prominent headers */
+.material-thick {
+  background: var(--material-bg-thick);
+  backdrop-filter: blur(60px) saturate(200%);
+  -webkit-backdrop-filter: blur(60px) saturate(200%);
+  border: 1px solid var(--material-border);
+}
+
+/* systemChromeMaterial — Tab bars, bottom bars */
+.material-chrome {
+  background: var(--material-bg-thick);
+  backdrop-filter: blur(80px) saturate(220%) brightness(1.05);
+  -webkit-backdrop-filter: blur(80px) saturate(220%) brightness(1.05);
+  border-top: 0.5px solid var(--material-separator);
+}
+
+/* ─── Liquid Glass — Advanced multi-layer ─── */
+.liquid-glass {
+  position: relative;
+  background: var(--material-bg-ultra);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid var(--material-border);
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.20) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.10) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dark .liquid-glass::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+}
+
+.liquid-glass::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5) 30%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.5) 70%,
+    transparent
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ─── Separator ─── */
+.apple-separator {
+  height: 0.5px;
+  background: var(--material-separator);
+}

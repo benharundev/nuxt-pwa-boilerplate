@@ -1,0 +1,100 @@
+/* ============================================================
+   Safe Area Insets — iOS Notch / Home Indicator Support
+   ============================================================ */
+
+:root {
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+
+    /* Tab bar height + safe area */
+    --tab-bar-height: 49px;
+    --tab-bar-total: calc(var(--tab-bar-height) + var(--safe-bottom));
+
+    /* Navigation bar */
+    --nav-bar-height: 44px;
+    --nav-bar-total: calc(var(--nav-bar-height) + var(--safe-top));
+
+    /* Large title nav bar */
+    --large-nav-height: 96px;
+    --large-nav-total: calc(var(--large-nav-height) + var(--safe-top));
+}
+
+/* ─── Safe Area Padding Utilities ─── */
+.pt-safe {
+    padding-top: var(--safe-top);
+}
+
+.pb-safe {
+    padding-bottom: var(--safe-bottom);
+}
+
+.pl-safe {
+    padding-left: var(--safe-left);
+}
+
+.pr-safe {
+    padding-right: var(--safe-right);
+}
+
+.px-safe {
+    padding-left: var(--safe-left);
+    padding-right: var(--safe-right);
+}
+
+.py-safe {
+    padding-top: var(--safe-top);
+    padding-bottom: var(--safe-bottom);
+}
+
+/* ─── Safe Area Margin Utilities ─── */
+.mt-safe {
+    margin-top: var(--safe-top);
+}
+
+.mb-safe {
+    margin-bottom: var(--safe-bottom);
+}
+
+.ml-safe {
+    margin-left: var(--safe-left);
+}
+
+.mr-safe {
+    margin-right: var(--safe-right);
+}
+
+/* ─── Content Offset (below navbar / above tabbar) ─── */
+.content-below-navbar {
+    padding-top: var(--nav-bar-total);
+}
+
+.content-above-tabbar {
+    padding-bottom: var(--tab-bar-total);
+}
+
+.content-safe-all {
+    padding-top: var(--nav-bar-total);
+    padding-bottom: var(--tab-bar-total);
+    padding-left: var(--safe-left);
+    padding-right: var(--safe-right);
+}
+
+/* ─── Sticky bottom with safe area ─── */
+.sticky-bottom-safe {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: var(--safe-bottom);
+}
+
+/* ─── Full height minus nav + tab ─── */
+.h-screen-safe {
+    height: calc(100dvh - var(--nav-bar-total) - var(--tab-bar-total));
+}
+
+.min-h-screen-safe {
+    min-height: calc(100dvh - var(--nav-bar-total) - var(--tab-bar-total));
+}
