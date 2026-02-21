@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     app: {
         head: {
             htmlAttrs: { lang: 'en' },
-            title: 'Nuxt PWA Boilerplate',
+            title: 'BenHarun Boilerplate',
             meta: [
                 { charset: 'utf-8' },
                 {
@@ -24,11 +24,11 @@ export default defineNuxtConfig({
                 },
                 { name: 'apple-mobile-web-app-capable', content: 'yes' },
                 { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
-                { name: 'apple-mobile-web-app-title', content: 'Boilerplate' },
+                { name: 'apple-mobile-web-app-title', content: 'BenHarun' },
                 { name: 'mobile-web-app-capable', content: 'yes' },
                 { name: 'theme-color', content: '#000000', media: '(prefers-color-scheme: dark)' },
                 { name: 'theme-color', content: '#f2f2f7', media: '(prefers-color-scheme: light)' },
-                { name: 'description', content: 'A Nuxt 3 PWA Boilerplate with Apple HIG Unified Adaptive Layout' },
+                { name: 'description', content: 'BenHarun IT Solutions & Innovation - Nuxt 3 adaptive PWA Boilerplate' },
             ],
             link: [
                 { rel: 'apple-touch-icon', href: '/icons/apple-touch-icon.png' },
@@ -53,9 +53,9 @@ export default defineNuxtConfig({
     pwa: {
         registerType: 'autoUpdate',
         manifest: {
-            name: 'Nuxt PWA Boilerplate',
-            short_name: 'Boilerplate',
-            description: 'Apple HIG Adaptive Layout PWA',
+            name: 'BenHarun Boilerplate',
+            short_name: 'BenHarun',
+            description: 'BenHarun IT Solutions & Innovation PWA',
             theme_color: '#000000',
             background_color: '#000000',
             display: 'standalone',

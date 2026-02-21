@@ -24,6 +24,7 @@ const showContentList = ref(true)
 
       <!-- Column 1 — Sidebar (systemUltraThinMaterial) -->
       <aside class="window-sidebar material-ultrathin">
+         
         <!-- Traffic light dots space -->
         <div class="sidebar-header">
           <div class="traffic-lights">
@@ -31,7 +32,10 @@ const showContentList = ref(true)
             <span class="tl tl-yellow"/>
             <span class="tl tl-green" />
           </div>
-          <span class="sidebar-app-name text-footnote">Boilerplate</span>
+          <div class="sidebar-brand">
+            <img v-if="isDark" src="/logo-dark.png" alt="BenHarun" class="brand-logo" />
+            <img v-else src="/logo-light.png" alt="BenHarun" class="brand-logo" />
+          </div>
         </div>
 
         <!-- Navigation -->
@@ -134,9 +138,22 @@ const showContentList = ref(true)
 .tl-yellow { background: #FEBC2E; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.15); }
 .tl-green  { background: #28C840; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.15); }
 
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-logo {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+}
+
 .sidebar-app-name {
-  color: var(--color-label-secondary);
-  font-weight: 600;
+  color: var(--color-label);
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .sidebar-nav {

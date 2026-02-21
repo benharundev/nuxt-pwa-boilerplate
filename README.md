@@ -22,8 +22,8 @@ Built for SaaS products that need to feel native on every platform.
 ## Quick Start
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Open `http://localhost:3000`
